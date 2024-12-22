@@ -4,3 +4,4 @@ kind: Kustomization
 resources:
   - ./cilium-l2.yaml
   - ./intercept-all-dns.yaml
+  - ./filter-world-trafic.yaml

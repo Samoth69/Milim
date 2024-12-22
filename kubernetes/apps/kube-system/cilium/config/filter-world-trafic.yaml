@@ -1,7 +1,7 @@
 apiVersion: cilium.io/v2
 kind: CiliumClusterwideNetworkPolicy
 metadata:
-  name: block-outside-trafic
+  name: filter-world-trafic
 spec:
   endpointSelector:
     matchExpressions:
@@ -10,13 +10,18 @@ spec:
         values:
         - "kube-system"
   enableDefaultDeny:
+    # egress: false
     ingress: false
   egress:
-    - toPorts:
+    - toEntities:
+        - world
+      toPorts:
       - ports:
         - port: "443"
           protocol: "TCP"
         - port: "443"
           protocol: "UDP"
-
-
+    - toEntities:
+        - kube-apiserver
+        - ingress
+        - cluster

@@ -3,6 +3,7 @@ kind: CiliumClusterwideNetworkPolicy
 metadata:
   name: intercept-all-dns
 spec:
+  description: prevent a pod from calling a DNS server on internet
   endpointSelector:
     matchExpressions:
       - key: "io.kubernetes.pod.namespace"
