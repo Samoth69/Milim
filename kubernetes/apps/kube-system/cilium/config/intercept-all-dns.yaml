@@ -42,6 +42,3 @@ spec:
             protocol: TCP
           - port: "53"
             protocol: UDP
-          rules:
-            dns:
-              - matchPattern: "*"
