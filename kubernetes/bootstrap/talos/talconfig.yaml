@@ -15,8 +15,8 @@ clusterSvcNets:
 
 additionalApiServerCertSans: &sans
   - "192.168.1.5"
-  - "192.168.0.37"
   - "kubeapi.milim.samoth.eu"
+  - "192.168.0.37"
   - "127.0.0.1"
 additionalMachineCertSans: *sans
 
@@ -32,7 +32,7 @@ nodes:
     controlPlane: true
     networkInterfaces:
       - deviceSelector:
-          hardwareAddr: "bc:24:11:d7:04:ee"
+          hardwareAddr: "bc:24:11:00:01:10"
         dhcp: false
         addresses:
           - "192.168.1.10/24"
@@ -49,7 +49,7 @@ nodes:
     controlPlane: true
     networkInterfaces:
       - deviceSelector:
-          hardwareAddr: "bc:24:11:23:88:d6"
+          hardwareAddr: "bc:24:11:00:01:11"
         dhcp: false
         addresses:
           - "192.168.1.11/24"
@@ -66,7 +66,7 @@ nodes:
     controlPlane: true
     networkInterfaces:
       - deviceSelector:
-          hardwareAddr: "bc:24:11:79:5e:ce"
+          hardwareAddr: "bc:24:11:00:01:12"
         dhcp: false
         addresses:
           - "192.168.1.12/24"
@@ -83,7 +83,7 @@ nodes:
     controlPlane: false
     networkInterfaces:
       - deviceSelector:
-          hardwareAddr: "bc:24:11:5a:0c:db"
+          hardwareAddr: "bc:24:11:00:01:20"
         dhcp: false
         addresses:
           - "192.168.1.20/24"
@@ -98,7 +98,7 @@ nodes:
     controlPlane: false
     networkInterfaces:
       - deviceSelector:
-          hardwareAddr: "bc:24:11:38:49:05"
+          hardwareAddr: "bc:24:11:00:01:22"
         dhcp: false
         addresses:
           - "192.168.1.22/24"
