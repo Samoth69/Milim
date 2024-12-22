@@ -36,3 +36,12 @@ spec:
   egressDeny:
     - toEntities:
         - world
+      toPorts:
+        - ports:
+          - port: "53"
+            protocol: TCP
+          - port: "53"
+            protocol: UDP
+          rules:
+            dns:
+              - matchPattern: "*"
