@@ -42,11 +42,10 @@ tasks:
 
   upgrade-node:
     desc: Upgrade Talos on a single node [HOSTNAME=required]
+    internal: true
     cmds:
-      - task: down
-      - talosctl --nodes {{.HOSTNAME}} upgrade --image="factory.talos.dev/installer{{if eq .TALOS_SECUREBOOT "true"}}-secureboot{{end}}/{{.TALOS_SCHEMATIC_ID}}:{{.TALOS_VERSION}}" --timeout=10m
+      - talosctl --nodes {{.HOSTNAME}} upgrade --image="factory.talos.dev/installer{{if eq .TALOS_SECUREBOOT "true"}}-secureboot{{end}}/{{.TALOS_SCHEMATIC_ID}}:{{.TALOS_VERSION}}" --timeout=10m --stage
       - talosctl --nodes {{.HOSTNAME}} health --wait-timeout=10m --server=false
-      - task: up
     vars:
       TALOS_SCHEMATIC_ID:
         sh: kubectl get node {{.HOSTNAME}} --output=jsonpath='{.metadata.annotations.extensions\.talos\.dev/schematic}'
@@ -97,3 +96,16 @@ tasks:
     cmd: flux --namespace flux-system resume kustomization --all
     preconditions:
       - which flux
+
+  upgrade-nodes:
+    desc: Upgrade all Talos node one by one
+    vars:
+      NODES:
+        sh: kubectl get nodes -o=custom-columns=NAME:.metadata.name --no-headers
+    cmds:
+      - task: down
+      - for: { var: NODES }
+        task: upgrade-node
+        vars:
+          HOSTNAME: '{{.ITEM}}'
+      - task: up
