@@ -19,4 +19,9 @@ flux get all -A --status-selector ready=false
 kubectl -n kubernetes-dashboard create token admin-user
 # to connect to primary database
 while true; do kubectl -n database port-forward "$(kubectl -n database get pods -l postgres-operator.crunchydata.com/role=master -o name)" 5432:5432; done
+# rook
+kubectl -n rook get CephCluster
+# hubble
+cilium hubble port-forward&
+hubble observe --verdict DROPPED -f
 ```
