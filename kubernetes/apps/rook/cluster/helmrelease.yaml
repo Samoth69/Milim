@@ -43,7 +43,7 @@ spec:
   values:
     operatorNamespace: rook
     toolbox:
-      enabled: true
+      enabled: false
     monitoring:
       enabled: false
     cephClusterSpec:
