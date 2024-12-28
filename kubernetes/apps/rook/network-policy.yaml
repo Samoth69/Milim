@@ -10,6 +10,9 @@ spec:
         values:
           - rook-ceph-operator
           - rook-ceph-cluster
+  ingress:
+    # nothing allowed
+    - {}
   egress:
     - toCIDR:
         # Proxmox nodes (with CEPH)
