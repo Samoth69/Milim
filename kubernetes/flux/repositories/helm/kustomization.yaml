@@ -9,5 +9,6 @@ resources:
   - ./metrics-server.yaml
   - ./postfinance.yaml
   - ./prometheus-community.yaml
+  - ./rook.yaml
   - ./spegel.yaml
   - ./stakater.yaml
