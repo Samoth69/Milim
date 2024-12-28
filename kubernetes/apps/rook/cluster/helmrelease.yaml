@@ -51,6 +51,8 @@ spec:
       dataDirHostPath: /var/lib/rook
       network:
         provider: host
+      mon:
+        count: 1
       storage:
         useAllNodes: false
         useAllDevices: false
