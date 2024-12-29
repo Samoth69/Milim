@@ -10,8 +10,6 @@ spec:
         operator: "NotIn"
         values:
         - "kube-system"
-        # cert-manager need free access to DNS servers because of DNS ACME
-        - "cert-manager"
       - key: "k8s-app"
         operator: "NotIn"
         values:

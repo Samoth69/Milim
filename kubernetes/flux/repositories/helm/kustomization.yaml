@@ -12,3 +12,4 @@ resources:
   - ./rook.yaml
   - ./spegel.yaml
   - ./stakater.yaml
+  - ./traefik.yaml
