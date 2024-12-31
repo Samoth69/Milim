@@ -22,7 +22,7 @@ spec:
       retries: 3
   values:
     deployment:
-      kind: DaemonSet
+      replicas: 1
     ingressClass:
       enabled: true
       isDefaultClass: true
