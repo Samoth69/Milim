@@ -5,7 +5,7 @@ metadata:
 spec:
   endpointSelector:
     matchLabels:
-      - app: traefik-internal
+      app: traefik-internal
   ingress:
     # nothing allowed
     - {}
