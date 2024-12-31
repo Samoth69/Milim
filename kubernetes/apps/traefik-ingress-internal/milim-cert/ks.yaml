@@ -10,7 +10,7 @@ spec:
   commonMetadata:
     labels:
       app.kubernetes.io/name: *app
-  path: ./kubernetes/apps/traefik-ingress-internal/milim-cert
+  path: ./kubernetes/apps/traefik-ingress-internal/milim-cert/app
   prune: true
   sourceRef:
     kind: GitRepository
