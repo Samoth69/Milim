@@ -1,7 +1,7 @@
 apiVersion: "cilium.io/v2"
 kind: CiliumNetworkPolicy
 metadata:
-  name: traefik-internal-network-policy
+  name: network-policy
 spec:
   endpointSelector:
     matchLabels:
