@@ -1,0 +1,14 @@
+apiVersion: "cilium.io/v2"
+kind: CiliumNetworkPolicy
+metadata:
+  name: traefik-internal-network-policy
+spec:
+  endpointSelector:
+    matchLabels:
+      - app: traefik-internal
+  ingress:
+    # nothing allowed
+    - {}
+  egress:
+    # nothing allowed
+    - {}
