@@ -28,6 +28,9 @@ spec:
       isDefaultClass: true
       name: traefik-internal
     globalArguments: []
+    logs:
+      general:
+        level: "DEBUG"
     service:
       annotations:
         "lbipam.cilium.io/ips": "192.168.1.30"

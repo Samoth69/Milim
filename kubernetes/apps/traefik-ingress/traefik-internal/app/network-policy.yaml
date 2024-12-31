@@ -5,10 +5,22 @@ metadata:
 spec:
   endpointSelector:
     matchLabels:
-      app: traefik-internal
+      app.kubernetes.io/instance: traefik-internal-traefik-ingress
   ingress:
-    # nothing allowed
-    - {}
+    - fromEntities:
+      - cluster
+      fromCIDR:
+      - 192.168.1.1/32
+      toPorts:
+      - ports:
+        - port: "80"
+          protocol: "TCP"
+        - port: "80"
+          protocol: "UDP"
+        - port: "443"
+          protocol: "TCP"
+        - port: "443"
+          protocol: "UDP"
   egress:
-    # nothing allowed
-    - {}
+    - toEntities:
+      - ingress
