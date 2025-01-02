@@ -28,6 +28,13 @@ spec:
       isDefaultClass: true
       name: traefik-internal
     globalArguments: []
+    ports:
+      web:
+        # make sure to update the network policy accordingly
+        port: 8000
+      websecure:
+        # make sure to update the network policy accordingly
+        port: 8443
     logs:
       general:
         level: "DEBUG"
