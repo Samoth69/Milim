@@ -35,12 +35,6 @@ spec:
       websecure:
         # make sure to update the network policy accordingly
         port: 8443
-    logs:
-      general:
-        level: "DEBUG"
-      access:
-        enabled: true
-        addInternals: true
     service:
       annotations:
         "lbipam.cilium.io/ips": "192.168.1.30"
