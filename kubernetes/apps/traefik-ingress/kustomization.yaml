@@ -4,3 +4,4 @@ kind: Kustomization
 resources:
   - ./namespace.yaml
   - ./traefik-internal/ks.yaml
+  - ./milim-cert/ks.yaml
