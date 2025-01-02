@@ -6,7 +6,7 @@ metadata:
   name: &app milim-cert
   namespace: flux-system
 spec:
-  targetNamespace: traefik-ingress-internal
+  targetNamespace: traefik-ingress
   commonMetadata:
     labels:
       app.kubernetes.io/name: *app
