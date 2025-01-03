@@ -10,7 +10,11 @@ spec:
         operator: In
         values:
           - rook-ceph-operator
-          - rook-ceph-cluster
+          - rook-ceph-tools
+          - csi-rbdplugin-provisioner
+          - csi-rbdplugin
+          - csi-cephfsplugin-provisioner
+          - csi-cephfsplugin
   ingress:
     # nothing allowed
     - {}
