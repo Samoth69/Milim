@@ -1,0 +1,31 @@
+apiVersion: "cilium.io/v2"
+kind: CiliumNetworkPolicy
+metadata:
+  name: network-policy
+spec:
+  endpointSelector:
+    matchExpressions:
+      - key: app
+        operator: In
+        values:
+          - ceph-csi-rbd
+  ingress:
+    # nothing allowed
+    - {}
+  egress:
+    - toCIDR:
+        # Proxmox nodes (with CEPH)
+        - 192.168.0.5/32
+        - 192.168.0.7/32
+        - 192.168.0.8/32
+      toPorts:
+        - ports:
+          # Monitors
+          - port: "3300"
+            protocol: TCP
+          - port: "6789"
+            protocol: TCP
+          # MDS & OSD
+          - port: "6800"
+            endPort: 7568
+            protocol: TCP
