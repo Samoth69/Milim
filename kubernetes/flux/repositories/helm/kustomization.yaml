@@ -6,6 +6,7 @@ resources:
   - ./ceph-csi.yaml
   - ./cilium.yaml
   - ./coredns.yaml
+  - ./grafana.yaml
   - ./jetstack.yaml
   - ./metrics-server.yaml
   - ./postfinance.yaml

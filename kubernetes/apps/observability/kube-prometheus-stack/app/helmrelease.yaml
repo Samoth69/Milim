@@ -34,7 +34,7 @@ spec:
     alertmanager:
       ingress:
         enabled: true
-        ingressClassName: internal
+        ingressClassName: traefik-internal
         hosts: ["alertmanager.milim.samoth.eu"]
         pathType: Prefix
       alertmanagerSpec:
@@ -69,7 +69,7 @@ spec:
     prometheus:
       ingress:
         enabled: true
-        ingressClassName: internal
+        ingressClassName: traefik-internal
         hosts: ["prometheus.milim.samoth.eu"]
         pathType: Prefix
       prometheusSpec:
