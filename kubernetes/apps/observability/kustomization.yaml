@@ -4,5 +4,4 @@ kind: Kustomization
 resources:
   - ./namespace.yaml
   - ./prometheus-operator-crds/ks.yaml
-  # TODO à réactiver quand ceph sera ok
-  # - ./kube-prometheus-stack/ks.yaml
+  - ./kube-prometheus-stack/ks.yaml

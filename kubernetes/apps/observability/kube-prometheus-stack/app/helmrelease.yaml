@@ -48,7 +48,7 @@ spec:
         storage:
           volumeClaimTemplate:
             spec:
-              storageClassName: ceph-rbd
+              storageClassName: csi-rbd-sc
               resources:
                 requests:
                   storage: 1Gi
@@ -94,7 +94,7 @@ spec:
         storageSpec:
           volumeClaimTemplate:
             spec:
-              storageClassName: ceph-rbd
+              storageClassName: csi-rbd-sc
               resources:
                 requests:
                   storage: 50Gi
