@@ -31,7 +31,7 @@ spec:
   receivers:
     - name: "null"
     - name: webhook
-      webhookConfigs:
-        - urlSecret:
+      discordConfigs:
+        - apiURL:
             name: discord-webhook-secret
             key: url
