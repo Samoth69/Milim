@@ -1,4 +1,5 @@
 ---
+# yaml-language-server: $schema=https://json.schemastore.org/kustomization
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
@@ -6,6 +7,7 @@ resources:
   - ./ceph-csi.yaml
   - ./cilium.yaml
   - ./coredns.yaml
+  - ./crunchydata.yaml
   - ./grafana.yaml
   - ./jetstack.yaml
   - ./metrics-server.yaml

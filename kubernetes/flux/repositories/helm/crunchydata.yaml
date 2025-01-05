@@ -3,8 +3,10 @@
 apiVersion: source.toolkit.fluxcd.io/v1
 kind: HelmRepository
 metadata:
-  name: postfinance
+  name: crunchydata
   namespace: flux-system
 spec:
+  type: oci
   interval: 1h
-  url: https://postfinance.github.io/kubelet-csr-approver
+  url: oci://registry.developers.crunchydata.com/crunchydata
+  timeout: 3m
