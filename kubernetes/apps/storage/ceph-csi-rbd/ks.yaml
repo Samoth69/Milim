@@ -6,11 +6,11 @@ metadata:
   name: &app ceph-csi-rbd
   namespace: flux-system
 spec:
-  targetNamespace: ceph-csi
+  targetNamespace: storage
   commonMetadata:
     labels:
       app.kubernetes.io/name: *app
-  path: ./kubernetes/apps/ceph-csi/ceph-csi-rbd/app
+  path: ./kubernetes/apps/storage/ceph-csi-rbd/app
   prune: false # never should be deleted
   sourceRef:
     kind: GitRepository
