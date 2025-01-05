@@ -31,6 +31,8 @@ spec:
 
     logLevel: 2
 
+    selinuxMount: false
+
     storageClass:
       create: true
       name: csi-rbd-sc
