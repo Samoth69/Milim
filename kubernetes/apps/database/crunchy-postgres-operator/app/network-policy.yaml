@@ -1,0 +1,14 @@
+apiVersion: "cilium.io/v2"
+kind: CiliumNetworkPolicy
+metadata:
+  name: pgo-network-policy
+spec:
+  endpointSelector:
+    matchLabels:
+      postgres-operator.crunchydata.com/control-plane: pgo
+  ingress:
+    # nothing allowed
+    - {}
+  egress:
+    - toEntities:
+      - kube-apiserver
