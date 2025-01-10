@@ -1,0 +1,19 @@
+apiVersion: "cilium.io/v2"
+kind: CiliumNetworkPolicy
+metadata:
+  name: hippo-ha-network-policy
+spec:
+  endpointSelector:
+    matchLabels:
+      postgres-operator.crunchydata.com/cluster: hippo-ha
+  ingress:
+    # nothing allowed
+    - {}
+  egress:
+    - toFQDNs:
+        - matchName: "truenas.samoth.eu"
+      toPorts:
+      - ports:
+        # backup
+        - port: "9000"
+          protocol: TCP
