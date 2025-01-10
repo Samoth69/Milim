@@ -8,7 +8,9 @@ spec:
       postgres-operator.crunchydata.com/cluster: hippo-ha
   ingress:
     # nothing allowed
-    - {}
+    - fromEndpoints:
+      - matchLabels:
+          app.kubernetes.io/name: crunchy-userinit-controller
   egress:
     - toFQDNs:
         - matchName: "truenas.samoth.eu"

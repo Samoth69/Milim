@@ -12,8 +12,6 @@ spec:
   egress:
     - toEndpoints:
       - matchLabels:
-          app: crunchy-database
           postgres-operator.crunchydata.com/cluster: hippo-ha
-    # Ajouter les deux BDD
     - toEntities:
       - kube-apiserver
