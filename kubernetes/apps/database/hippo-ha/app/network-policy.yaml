@@ -11,6 +11,8 @@ spec:
     - fromEndpoints:
       - matchLabels:
           app.kubernetes.io/name: crunchy-userinit-controller
+      - matchLabels:
+          postgres-operator.crunchydata.com/cluster: hippo-ha
   egress:
     - toFQDNs:
         - matchName: "truenas.samoth.eu"
@@ -19,3 +21,6 @@ spec:
         # backup
         - port: "9000"
           protocol: TCP
+    - toEndpoints:
+      - matchLabels:
+          postgres-operator.crunchydata.com/cluster: hippo-ha
