@@ -6,3 +6,4 @@ resources:
   - ./namespace.yaml
   - ./crunchy-postgres-operator/ks.yaml
   - ./userinit-controller/ks.yaml
+  - ./hippo-ha/ks.yaml
