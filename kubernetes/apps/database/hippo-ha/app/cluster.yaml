@@ -16,12 +16,11 @@ spec:
     dynamicConfiguration:
       synchronous_mode: true
       postgresql:
-        parameters:
-          max_wal_size: 5GB
-          synchronous_commit: 'on'
-          pg_hba:
-            - hostnossl all all 127.0.0.1/8 md5 # port forwarding without ssl
-            - hostssl all all all md5
+        max_wal_size: 5GB
+        synchronous_commit: 'on'
+        pg_hba:
+          - hostnossl all all 127.0.0.1/8 md5 # port forwarding without ssl
+          - hostssl all all all md5
 
 
   instances:
