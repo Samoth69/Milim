@@ -12,7 +12,7 @@ spec:
   egress:
     - toEndpoints:
       - matchLabels:
-        app: crunchy-database
+          app: crunchy-database
     # Ajouter les deux BDD
     - toEntities:
       - kube-apiserver
