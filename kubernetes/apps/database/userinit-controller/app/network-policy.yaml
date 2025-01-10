@@ -1,0 +1,18 @@
+apiVersion: "cilium.io/v2"
+kind: CiliumNetworkPolicy
+metadata:
+  name: pgo-network-policy
+spec:
+  endpointSelector:
+    matchLabels:
+      app: userinit-controller
+  ingress:
+    # nothing allowed
+    - {}
+  egress:
+    - toEndpoints:
+      - matchLabels:
+        app: crunchy-database
+    # Ajouter les deux BDD
+    - toEntities:
+      - kube-apiserver

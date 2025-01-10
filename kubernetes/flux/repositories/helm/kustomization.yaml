@@ -7,6 +7,7 @@ resources:
   - ./ceph-csi.yaml
   - ./cilium.yaml
   - ./coredns.yaml
+  - ./crunchy-userinit.yaml
   - ./crunchydata.yaml
   - ./grafana.yaml
   - ./jetstack.yaml
