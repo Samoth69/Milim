@@ -7,20 +7,22 @@ spec:
     matchLabels:
       postgres-operator.crunchydata.com/cluster: hippo-ha
   ingress:
-    # nothing allowed
     - fromEndpoints:
+      # Should be required to allow userinit to do it's thing
       - matchLabels:
           app.kubernetes.io/name: crunchy-userinit-controller
+      # Allow himself
       - matchLabels:
           postgres-operator.crunchydata.com/cluster: hippo-ha
   egress:
+    # pgBackrest
     - toFQDNs:
         - matchName: "truenas.samoth.eu"
       toPorts:
       - ports:
-        # backup
         - port: "9000"
           protocol: TCP
+    # Allow himself
     - toEndpoints:
       - matchLabels:
           postgres-operator.crunchydata.com/cluster: hippo-ha
