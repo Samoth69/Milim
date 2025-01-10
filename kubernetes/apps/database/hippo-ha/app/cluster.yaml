@@ -19,6 +19,8 @@ spec:
         parameters:
           max_wal_size: 5GB
           synchronous_commit: 'on'
+          pg_hba:
+            - hostssl all all all md5
 
 
   instances:
