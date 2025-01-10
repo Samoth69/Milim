@@ -5,7 +5,7 @@ metadata:
 spec:
   endpointSelector:
     matchLabels:
-      app: userinit-controller
+      app.kubernetes.io/name: crunchy-userinit-controller
   ingress:
     # nothing allowed
     - {}

@@ -1,0 +1,110 @@
+---
+# yaml-language-server: $schema=https://raw.githubusercontent.com/datreeio/CRDs-catalog/main/postgres-operator.crunchydata.com/postgrescluster_v1beta1.json
+apiVersion: postgres-operator.crunchydata.com/v1beta1
+kind: PostgresCluster
+metadata:
+  name: &name hippo-ha
+spec:
+  postgresVersion: 17
+
+  metadata:
+    labels:
+      crunchy-userinit.ramblurr.github.com/enabled: "true"
+      crunchy-userinit.ramblurr.github.com/superuser: postgres
+
+  patroni:
+    dynamicConfiguration:
+      synchronous_mode: true
+      postgresql:
+        parameters:
+          max_wal_size: 5GB
+          synchronous_commit: 'on'
+
+
+  instances:
+    - name: &instance pgha1
+      replicas: 2
+      dataVolumeClaimSpec:
+        accessModes:
+        - "ReadWriteOnce"
+        resources:
+          requests:
+            storage: 80Gi
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - topologyKey: kubernetes.io/hostname
+            labelSelector:
+              matchLabels:
+                postgres-operator.crunchydata.com/cluster: *name
+                postgres-operator.crunchydata.com/instance-set: *instance
+
+  users:
+    # Superuser
+    - name: postgres
+      databases:
+        - postgres
+      options: SUPERUSER
+      password: &password
+        type: AlphaNumeric
+    # Applications
+    - name: harbor
+      databases:
+        - harbor
+      password: *password
+    - name: movtrack6
+      databases:
+        - movtrack6
+      password: *password
+    - name: rsscachego
+      databases:
+        - rsscachego
+      password: *password
+
+  monitoring:
+    pgmonitor:
+      exporter:
+        resources:
+          requests:
+            cpu: 10m
+            memory: 64M
+          limits:
+            memory: 512M
+
+  backups:
+    pgbackrest:
+      manual:
+        repoName: repo1
+        options:
+         - --type=full
+      configuration:
+        - secret:
+            name: hippo-ha-secret
+      global:
+        repo1-s3-uri-style: path
+        repo1-path: /pgbackrest/postgres-operator/milim/repo1
+        repo1-retention-full: "14"
+        repo1-retention-full-type: count
+      repos:
+        - name: repo1
+          s3:
+            bucket: crunchy-postgres-backups
+            endpoint: https://truenas.samoth.eu:9000
+            region: us-east-1
+          schedules:
+            full: "0 1 * * 0" # Sunday at 01:00
+            differential: "0 1 * * 1-6" # Mon-Sat at 01:00
+
+  proxy:
+    pgBouncer:
+      replicas: 2
+      affinity:
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 1
+            podAffinityTerm:
+              topologyKey: kubernetes.io/hostname
+              labelSelector:
+                matchLabels:
+                  postgres-operator.crunchydata.com/cluster: hippo-ha
+                  postgres-operator.crunchydata.com/role: pgbouncer
