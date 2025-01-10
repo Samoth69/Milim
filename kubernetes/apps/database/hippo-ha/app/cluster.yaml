@@ -94,17 +94,3 @@ spec:
           schedules:
             full: "0 1 * * 0" # Sunday at 01:00
             differential: "0 1 * * 1-6" # Mon-Sat at 01:00
-
-  proxy:
-    pgBouncer:
-      replicas: 2
-      affinity:
-        podAntiAffinity:
-          preferredDuringSchedulingIgnoredDuringExecution:
-          - weight: 1
-            podAffinityTerm:
-              topologyKey: kubernetes.io/hostname
-              labelSelector:
-                matchLabels:
-                  postgres-operator.crunchydata.com/cluster: hippo-ha
-                  postgres-operator.crunchydata.com/role: pgbouncer
