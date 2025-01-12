@@ -28,10 +28,10 @@ spec:
     database:
       type: external
       external:
-        host: postgres-ha.database.svc
+        host: hippo-ha-ha.database.svc
         username: harbor
         coreDatabase: harbor
-        existingSecret: postgres-pguser-harbor
+        existingSecret: harbor-database-secret
         sslmode: require
     metrics:
       enabled: true
