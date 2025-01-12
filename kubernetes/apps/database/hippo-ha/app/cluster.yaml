@@ -41,6 +41,12 @@ spec:
               matchLabels:
                 postgres-operator.crunchydata.com/cluster: *name
                 postgres-operator.crunchydata.com/instance-set: *instance
+      resources:
+        requests:
+          cpu: 10m
+          memory: 64M
+        limits:
+          memory: 1024M
 
   users:
     # Superuser
