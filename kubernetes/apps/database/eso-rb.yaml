@@ -1,0 +1,14 @@
+#
+# Allow External Secrets to read secret in this namespace
+kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: eso-rb
+subjects:
+  - kind: ServiceAccount
+    name: external-secrets
+    namespace: infrastructure
+roleRef:
+  kind: ClusterRole
+  name: eso-store-read-role
+  apiGroup: rbac.authorization.k8s.io
