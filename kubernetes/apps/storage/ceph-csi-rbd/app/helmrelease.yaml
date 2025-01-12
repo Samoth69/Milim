@@ -25,9 +25,9 @@ spec:
     csiConfig:
       - clusterID: 8452515a-f5d3-45ac-b428-cb6d56e36a03
         monitors:
-          - 192.168.0.5
           - 192.168.0.7
           - 192.168.0.8
+          - 192.168.0.9
 
     logLevel: 2
 
