@@ -14,6 +14,13 @@ spec:
       # Allow himself
       - matchLabels:
           postgres-operator.crunchydata.com/cluster: hippo-ha
+      # Harbor
+      - matchLabels:
+          app.kubernetes.io/component: core
+          app.kubernetes.io/instance: harbor
+      - matchLabels:
+          app.kubernetes.io/component: exporter
+          app.kubernetes.io/instance: harbor
   egress:
     # pgBackrest
     - toFQDNs:
