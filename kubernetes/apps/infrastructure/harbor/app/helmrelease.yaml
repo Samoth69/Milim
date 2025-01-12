@@ -21,7 +21,7 @@ spec:
       ingress:
         hosts:
           core: harbor.milim.samoth.eu
-        className: traefic-internal
+        className: traefik-internal
       # we do not want harbor internal cert
       tls:
         enabled: false
