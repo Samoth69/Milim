@@ -4,6 +4,7 @@ kind: RoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: eso-rb
+  namespace: database
 subjects:
   - kind: ServiceAccount
     name: external-secrets
