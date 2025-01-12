@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/datreeio/CRDs-catalog/refs/heads/main/cilium.io/ciliumnetworkpolicy_v2.json
 apiVersion: "cilium.io/v2"
 kind: CiliumNetworkPolicy
 metadata:
@@ -7,33 +8,41 @@ spec:
     matchLabels:
       postgres-operator.crunchydata.com/cluster: hippo-ha
   ingress:
-    # Should be required to allow userinit to do it's thing
-    - fromEndpoints:
-      - matchLabels:
-          app.kubernetes.io/name: crunchy-userinit-controller
     # Allow himself
     - fromEndpoints:
-      - matchLabels:
-          postgres-operator.crunchydata.com/cluster: hippo-ha
+        - matchLabels:
+            postgres-operator.crunchydata.com/cluster: hippo-ha
+    # Userinit
+    - fromEndpoints:
+        - matchLabels:
+            app.kubernetes.io/name: crunchy-userinit-controller
+      toPorts:
+        - ports:
+            - port: "5432"
+              protocol: TCP
     # Harbor
     - fromEndpoints:
-      - matchLabels:
-          app.kubernetes.io/instance: harbor
-      - matchExpressions:
-        - key: app.kubernetes.io/component
-          operator: In
-          values:
-            - core
-            - exporter
+        - matchLabels:
+            app.kubernetes.io/instance: harbor
+        - matchExpressions:
+            - key: app.kubernetes.io/component
+              operator: In
+              values:
+                - core
+                - exporter
+      toPorts:
+        - ports:
+            - port: "5432"
+              protocol: TCP
   egress:
     # pgBackrest
     - toFQDNs:
         - matchName: "truenas.samoth.eu"
       toPorts:
-      - ports:
-        - port: "9000"
-          protocol: TCP
+        - ports:
+            - port: "9000"
+              protocol: TCP
     # Allow himself
     - toEndpoints:
-      - matchLabels:
-          postgres-operator.crunchydata.com/cluster: hippo-ha
+        - matchLabels:
+            postgres-operator.crunchydata.com/cluster: hippo-ha
