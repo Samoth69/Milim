@@ -32,9 +32,15 @@ spec:
       serviceMonitor:
         enabled: true
         interval: 1m
+      log:
+        level: info
+        timeEncoding: iso8601
     webhook:
       image:
         repository: ghcr.io/external-secrets/external-secrets
       serviceMonitor:
         enabled: true
         interval: 1m
+      log:
+        level: info
+        timeEncoding: iso8601
