@@ -20,6 +20,9 @@ spec:
       repository: ghcr.io/external-secrets/external-secrets
     installCRDs: true
     extendedMetricLabels: true
+    log:
+      level: info
+      timeEncoding: iso8601
     serviceMonitor:
       enabled: true
       interval: 1m
