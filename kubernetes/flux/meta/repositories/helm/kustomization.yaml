@@ -10,10 +10,9 @@ resources:
   - ./coredns.yaml
   - ./crunchy-userinit.yaml
   - ./crunchydata.yaml
-  - ./external-dns.yaml
+  - ./external-secrets.yaml
   - ./grafana.yaml
   - ./jetstack.yaml
-  - ./k8s-gateway.yaml
   - ./metrics-server.yaml
   - ./prometheus-community.yaml
   - ./spegel.yaml
