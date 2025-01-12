@@ -23,6 +23,7 @@ spec:
     # Harbor
     - fromEndpoints:
         - matchLabels:
+            k8s:io.kubernetes.pod.namespace: infrastructure
             app.kubernetes.io/instance: harbor
         - matchExpressions:
             - key: app.kubernetes.io/component
