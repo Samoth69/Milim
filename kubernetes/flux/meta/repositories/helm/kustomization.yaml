@@ -12,6 +12,7 @@ resources:
   - ./crunchydata.yaml
   - ./external-secrets.yaml
   - ./grafana.yaml
+  - ./harbor.yaml
   - ./jetstack.yaml
   - ./metrics-server.yaml
   - ./prometheus-community.yaml
