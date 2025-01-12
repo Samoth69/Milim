@@ -118,6 +118,11 @@ spec:
         flux-control-plane:
           url: https://raw.githubusercontent.com/fluxcd/flux2-monitoring-example/main/monitoring/configs/dashboards/control-plane.json
           datasource: Prometheus
+        harbor:
+          # renovate: depName="Harbor"
+          gnetId: 16003
+          revision: 2
+          datasource: Prometheus
         kubernetes-api-server:
           # renovate: depName="Kubernetes / System / API Server"
           gnetId: 15761
@@ -163,6 +168,11 @@ spec:
           datasource: Prometheus
         node-feature-discovery:
           url: https://raw.githubusercontent.com/kubernetes-sigs/node-feature-discovery/master/examples/grafana-dashboard.json
+          datasource: Prometheus
+        postgresql:
+          # renovate: depName="PostgreSQL Database"
+          gnetId: 9628
+          revision: 8
           datasource: Prometheus
         prometheus:
           # renovate: depName="Prometheus"

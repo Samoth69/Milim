@@ -23,3 +23,13 @@ while true; do kubectl -n database port-forward "$(kubectl -n database get pods 
 cilium hubble port-forward&
 hubble observe --verdict DROPPED -f
 ```
+
+## TODO
+
+- infra
+	- harbor (ips à faire)
+	- redis
+	- rabbitmq
+- app
+	- movtrack
+	- rsscachego
