@@ -46,3 +46,5 @@ spec:
       persistentVolumeClaim:
         registry:
           size: 20Gi
+    updateStrategy:
+      type: Recreate
