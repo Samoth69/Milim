@@ -12,25 +12,17 @@ spec:
       toPorts:
       - ports:
         - port: "8000"
-          protocol: "TCP"
-        - port: "8000"
-          protocol: "UDP"
+          protocol: ANY
         - port: "8443"
-          protocol: "TCP"
-        - port: "8443"
-          protocol: "UDP"
+          protocol: ANY
     - fromCIDR:
       - 192.168.0.0/23
       toPorts:
       - ports:
         - port: "8000"
-          protocol: "TCP"
-        - port: "8000"
-          protocol: "UDP"
+          protocol: ANY
         - port: "8443"
-          protocol: "TCP"
-        - port: "8443"
-          protocol: "UDP"
+          protocol: ANY
   egress:
     - toEntities:
       - ingress
