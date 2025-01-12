@@ -39,4 +39,4 @@ spec:
   interval: 30m
   timeout: 5m
   dependsOn:
-    - name: traefik-ingress
+    - name: traefik-internal
