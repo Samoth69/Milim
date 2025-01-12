@@ -7,20 +7,24 @@ spec:
     matchLabels:
       postgres-operator.crunchydata.com/cluster: hippo-ha
   ingress:
+    # Should be required to allow userinit to do it's thing
     - fromEndpoints:
-      # Should be required to allow userinit to do it's thing
       - matchLabels:
           app.kubernetes.io/name: crunchy-userinit-controller
-      # Allow himself
+    # Allow himself
+    - fromEndpoints:
       - matchLabels:
           postgres-operator.crunchydata.com/cluster: hippo-ha
-      # Harbor
+    # Harbor
+    - fromEndpoints:
       - matchLabels:
-          app.kubernetes.io/component: core
           app.kubernetes.io/instance: harbor
-      - matchLabels:
-          app.kubernetes.io/component: exporter
-          app.kubernetes.io/instance: harbor
+      - matchExpressions:
+        - key: app.kubernetes.io/component
+          operator: In
+          values:
+            - core
+            - exporter
   egress:
     # pgBackrest
     - toFQDNs:
