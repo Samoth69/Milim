@@ -12,7 +12,7 @@ If you want more see [here](https://github.com/Samoth69/IAC/tree/master/Infra/te
 
 ```bash
 # force update flux
-flux reconcile source git home-kubernetes
+flux reconcile source git flux-system
 # get flux objects status
 flux get all -A --status-selector ready=false
 # token for the dashboard
