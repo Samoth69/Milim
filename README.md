@@ -28,7 +28,6 @@ hubble observe --verdict DROPPED -f
 
 - infra
 	- harbor (ips à faire)
-	- redis
 	- rabbitmq
 - app
 	- movtrack
