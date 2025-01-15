@@ -35,7 +35,6 @@ l2announcements:
   enabled: true
 loadBalancer:
   algorithm: maglev
-  mode: hybrid
   acceleration: native
 localRedirectPolicy: true
 operator:
