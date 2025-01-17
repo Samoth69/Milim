@@ -52,7 +52,6 @@
     },
     {
       "description": ["Auto merge minor / patch update"],
-      "matchDatasources": ["helm", "docker", "github-releases", "github-packages"],
       "matchUpdateTypes": ["minor", "patch"],
       "matchCurrentVersion": "!/^0/",
       "automerge": true
