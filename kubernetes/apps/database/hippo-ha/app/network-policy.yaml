@@ -35,6 +35,15 @@ spec:
         - ports:
             - port: "5432"
               protocol: TCP
+    # App
+    - fromEndpoints:
+        - matchLabels:
+            k8s:io.kubernetes.pod.namespace: app
+            access: database
+      toPorts:
+        - ports:
+            - port: "5432"
+              protocol: TCP
   egress:
     # pgBackrest
     - toFQDNs:
