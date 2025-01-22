@@ -88,8 +88,13 @@ spec:
                 - ipBlock:
                     cidr: 192.168.0.0/24
               ports:
+                # qbt
+                - protocol: TCP
+                  port: 3000
+                # random webservers
                 - protocol: TCP
                   port: 80
+                # DNS
                 - protocol: TCP
                   port: 53
                 - protocol: UDP
