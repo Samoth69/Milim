@@ -5,3 +5,4 @@ kind: Kustomization
 resources:
   - ./namespace.yaml
   - ./pull-secret.sops.yaml
+  - ./uptime-kuma/ks.yaml
