@@ -6,12 +6,12 @@ metadata:
   name: &appname uptime-kuma
   namespace: flux-system
 spec:
-  targetNamespace: apps
+  targetNamespace: app
   commonMetadata:
     labels:
       app.kubernetes.io/name: *appname
   interval: 10m
-  path: "./kubernetes/apps/apps/uptime-kuma/app"
+  path: "./kubernetes/apps/app/uptime-kuma/app"
   prune: true
   sourceRef:
     kind: GitRepository
