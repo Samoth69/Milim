@@ -76,3 +76,21 @@ spec:
         size: 1Gi
         globalMounts:
           - path: /app/data
+
+    networkpolicies:
+      uptime-kuma:
+        controller: uptime-kuma
+        policyTypes:
+          - Egress
+        rules:
+          egress:
+            - to:
+                - ipBlock:
+                    cidr: 192.168.0.0/24
+              ports:
+                - protocol: TCP
+                  port: 80
+                - protocol: TCP
+                  port: 53
+                - protocol: UDP
+                  port: 53
