@@ -48,6 +48,8 @@ spec:
     # pgBackrest
     - toFQDNs:
         - matchName: "truenas.samoth.eu"
+      toCIDR:
+        - 192.168.0.22/32
       toPorts:
         - ports:
             - port: "9000"
