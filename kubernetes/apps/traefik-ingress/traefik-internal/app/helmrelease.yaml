@@ -22,7 +22,7 @@ spec:
       retries: 3
   values:
     deployment:
-      replicas: 1
+      replicas: 3
     ingressClass:
       enabled: true
       isDefaultClass: true
@@ -38,3 +38,12 @@ spec:
     service:
       annotations:
         "lbipam.cilium.io/ips": "192.168.1.30"
+    affinity:
+      podAntiAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchLabels:
+                app.kubernetes.io/name: '{{ template "traefik.name" . }}'
+                app.kubernetes.io/instance: '{{ .Release.Name }}-{{ include "traefik.namespace" . }}'
+            topologyKey: kubernetes.io/hostname
+    priorityClassName: high-priority
