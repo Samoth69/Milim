@@ -18,7 +18,7 @@ spec:
         # Proxmox nodes (with CEPH)
         - 192.168.0.5/32
         - 192.168.0.7/32
-        - 192.168.0.9/32
+        - 192.168.0.8/32
       toPorts:
         - ports:
           # Monitors
