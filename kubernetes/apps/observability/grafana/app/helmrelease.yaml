@@ -24,7 +24,7 @@ spec:
       retries: 3
   values:
     downloadDashboardsImage:
-      pullPolicy: Always
+      tag: 8.12.0
     deploymentStrategy:
       type: Recreate
     admin:
