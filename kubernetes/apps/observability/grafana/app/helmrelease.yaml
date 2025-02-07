@@ -23,6 +23,8 @@ spec:
       strategy: rollback
       retries: 3
   values:
+    downloadDashboardsImage:
+      pullPolicy: Always
     deploymentStrategy:
       type: Recreate
     admin:
