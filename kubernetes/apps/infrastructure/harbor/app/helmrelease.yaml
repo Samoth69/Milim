@@ -16,6 +16,7 @@ spec:
         namespace: flux-system
       interval: 5m
   values:
+    imagePullPolicy: Always
     externalURL: https://harbor.milim.samoth.eu
     expose:
       ingress:
