@@ -28,7 +28,7 @@ spec:
     resources:
       requests:
         cpu: 10m
-        memory: 128Mi
+        memory: 100Mi
       limits:
         memory: 2Gi
     persistence:
@@ -43,7 +43,6 @@ spec:
         enabled: true
       config:
         APP_NAME: "Forgejo Milim"
-        ROOT_URL: https://forgejo.milim.samoth.eu
         repository:
           FORCE_PRIVATE: true
           DEFAULT_PRIVATE: private
@@ -52,6 +51,7 @@ spec:
           ENABLED: true
           ALLOW_DOMAIN: https://forgejo.milim.samoth.eu
         server:
+          ROOT_URL: https://forgejo.milim.samoth.eu
           START_SSH_SERVER: false
           DISABLE_SSH: true
           OFFLINE_MODE: true
