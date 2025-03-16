@@ -39,6 +39,8 @@ spec:
       size: 20Gi
       storageClass: csi-rbd-sc
     gitea:
+      admin:
+        passwordMode: initialOnlyNoReset
       metrics:
         enabled: true
       config:
