@@ -64,9 +64,12 @@ spec:
         admin:
           DEFAULT_EMAIL_NOTIFICATIONS: disabled
           USER_DISABLED_FEATURES: manage_ssh_keys
-        # TODO
-        # oauth2_client:
-          # ...
+        openid:
+          ENABLE_OPENID_SIGNIN: false
+        oauth2_client:
+          ENABLE_AUTO_REGISTRATION: true
+        oauth2:
+          EANBLED: false
         service:
           DISABLE_REGISTRATION: true
           REQUIRE_SIGNIN_VIEW: true

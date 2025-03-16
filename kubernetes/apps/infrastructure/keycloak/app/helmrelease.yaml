@@ -16,6 +16,7 @@ spec:
         namespace: flux-system
       interval: 5m
   values:
+    replicaCount: 2
     auth:
       adminUser: admin
       existingSecret: keycloak-admin-secret
@@ -25,7 +26,7 @@ spec:
     resources:
       requests:
         cpu: 10m
-        memory: 512Mi
+        memory: 666Mi
       limits:
         memory: 2048Mi
     ingress:
