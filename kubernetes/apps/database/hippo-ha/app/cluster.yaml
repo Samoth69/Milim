@@ -69,6 +69,14 @@ spec:
       databases:
         - rsscachego
       password: *password
+    - name: forgejo
+      databases:
+        - forgejo
+      password: *password
+    - name: keycloak
+      databases:
+        - keycloak
+      password: *password
 
   monitoring:
     pgmonitor:

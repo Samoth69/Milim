@@ -1,0 +1,115 @@
+---
+# yaml-language-server: $schema=https://kubernetes-schemas.pages.dev/helm.toolkit.fluxcd.io/helmrelease_v2.json
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: forgejo
+spec:
+  interval: 30m
+  chart:
+    spec:
+      chart: forgejo
+      version: "11.0.3"
+      sourceRef:
+        kind: HelmRepository
+        name: forgejo
+        namespace: flux-system
+      interval: 5m
+  values:
+    image:
+      rootless: true
+    ingress:
+      enabled: true
+      hosts:
+        - host: forgejo.milim.samoth.eu
+          paths:
+            - path: /
+              pathType: Prefix
+    resources:
+      requests:
+        cpu: 10m
+        memory: 128Mi
+      limits:
+        memory: 2Gi
+    persistence:
+      enabled: true
+      create: true
+      mount: true
+      claimName: forgejo
+      size: 20Gi
+      storageClass: csi-rbd-sc
+    gitea:
+      metrics:
+        enabled: true
+      config:
+        APP_NAME: "Forgejo Milim"
+        repository:
+          FORCE_PRIVATE: true
+          DEFAULT_PRIVATE: private
+          ACCESS_CONTROL_ALLOW_ORIGIN: https://forgejo.milim.samoth.eu
+        cors:
+          ENABLED: true
+          ALLOW_DOMAIN: https://forgejo.milim.samoth.eu
+        server:
+          START_SSH_SERVER: false
+          DISABLE_SSH: true
+          OFFLINE_MODE: true
+        database:
+          DB_TYPE: postgres
+          HOST: hippo-ha-ha.database.svc
+          NAME: forgejo
+          USER: forgejo
+          MAX_OPEN_CONNS: 10
+          SSL_MODE: require
+        admin:
+          DEFAULT_EMAIL_NOTIFICATIONS: disabled
+          USER_DISABLED_FEATURES: manage_ssh_keys
+        # TODO
+        # oauth2_client:
+          # ...
+        service:
+          DISABLE_REGISTRATION: true
+          REQUIRE_SIGNIN_VIEW: true
+          DEFAULT_KEEP_EMAIL_PRIVATE: true
+          DEFAULT_ALLOW_CREATE_ORGANIZATION: false
+          DEFAULT_USER_IS_RESTRICTED: true
+          ALLOW_ONLY_EXTERNAL_REGISTRATION: true
+          # fixme pas sur que ça marche ça
+          explore:
+            REQUIRE_SIGNIN_VIEW: true
+        cache:
+          # https://forgejo.org/docs/latest/admin/recommendations/#cacheadapter
+          ADAPTER: twoqueue
+          HOST: '{"size":100, "recent_ratio":0.25, "ghost_ratio":0.5}'
+        cron:
+          ENABLED: true
+          archive_cleanup:
+            ENABLED: false
+          update_mirrors:
+            SCHEDULE: '@every 3h'
+          git_gc_repos:
+            ENABLED: true
+          update_checker:
+            ENABLED: false
+        metrics:
+          ENABLED: true
+        oauth2:
+          ENABLED: false
+        packages:
+          ENABLED: false
+      additionalConfigFromEnvs:
+        - name: FORGEJO__DATABASE__PASSWD
+          valueFrom:
+            secretKeyRef:
+              name: forgejo-database-secret
+              key: password
+    redis-cluster:
+      enabled: false
+    redis:
+      enabled: false
+    postgresql-ha:
+      enabled: false
+    postgresql:
+      enabled: false
+
+
