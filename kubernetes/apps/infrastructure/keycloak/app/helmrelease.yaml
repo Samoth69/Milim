@@ -41,5 +41,5 @@ spec:
       host: hippo-ha-ha.database.svc
       user: keycloak
       database: keycloak
-      existingSecret: keycloak-admin-secret
+      existingSecret: keycloak-database-secret
       existingSecretPasswordKey: password
