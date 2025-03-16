@@ -113,5 +113,6 @@ spec:
       enabled: false
     postgresql:
       enabled: false
-
+    strategy:
+      type: Recreate
 
