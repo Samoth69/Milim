@@ -96,8 +96,6 @@ spec:
             ENABLED: false
         metrics:
           ENABLED: true
-        oauth2:
-          ENABLED: false
         packages:
           ENABLED: false
       additionalConfigFromEnvs:
