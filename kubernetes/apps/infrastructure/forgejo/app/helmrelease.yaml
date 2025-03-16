@@ -43,6 +43,7 @@ spec:
         enabled: true
       config:
         APP_NAME: "Forgejo Milim"
+        ROOT_URL: https://forgejo.milim.samoth.eu
         repository:
           FORCE_PRIVATE: true
           DEFAULT_PRIVATE: private
