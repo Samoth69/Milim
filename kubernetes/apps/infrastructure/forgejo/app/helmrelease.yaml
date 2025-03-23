@@ -54,8 +54,8 @@ spec:
           ALLOW_DOMAIN: https://forgejo.milim.samoth.eu
         server:
           ROOT_URL: https://forgejo.milim.samoth.eu
-          START_SSH_SERVER: true
-          DISABLE_SSH: false
+          START_SSH_SERVER: false
+          DISABLE_SSH: true
           OFFLINE_MODE: true
         database:
           DB_TYPE: postgres
@@ -79,6 +79,7 @@ spec:
           DEFAULT_ALLOW_CREATE_ORGANIZATION: false
           DEFAULT_USER_IS_RESTRICTED: true
           ALLOW_ONLY_EXTERNAL_REGISTRATION: true
+          ENABLE_BASIC_AUTHENTICATION: false
           # fixme pas sur que ça marche ça
           explore:
             REQUIRE_SIGNIN_VIEW: true
