@@ -54,8 +54,8 @@ spec:
           ALLOW_DOMAIN: https://forgejo.milim.samoth.eu
         server:
           ROOT_URL: https://forgejo.milim.samoth.eu
-          START_SSH_SERVER: false
-          DISABLE_SSH: true
+          START_SSH_SERVER: true
+          DISABLE_SSH: false
           OFFLINE_MODE: true
         database:
           DB_TYPE: postgres
@@ -66,7 +66,6 @@ spec:
           SSL_MODE: require
         admin:
           DEFAULT_EMAIL_NOTIFICATIONS: disabled
-          USER_DISABLED_FEATURES: manage_ssh_keys
         openid:
           ENABLE_OPENID_SIGNIN: false
         oauth2_client:
@@ -83,6 +82,10 @@ spec:
           # fixme pas sur que ça marche ça
           explore:
             REQUIRE_SIGNIN_VIEW: true
+        ssh.minimum_key_sizes:
+          ECDSA: -1
+          RSA: -1
+          DSA: -1
         cache:
           # https://forgejo.org/docs/latest/admin/recommendations/#cacheadapter
           ADAPTER: twoqueue
