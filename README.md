@@ -7,6 +7,16 @@ Currently includes :
 
 If you want more see [here](https://github.com/Samoth69/IAC/tree/master/Infra/terraform)
 
+```
+customization:
+    systemExtensions:
+        officialExtensions:
+            - siderolabs/btrfs
+            - siderolabs/iscsi-tools
+            - siderolabs/qemu-guest-agent
+            - siderolabs/util-linux-tools
+```
+
 ## usefull commands
 
 ```bash
