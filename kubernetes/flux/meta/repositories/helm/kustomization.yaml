@@ -16,6 +16,7 @@ resources:
   - ./grafana.yaml
   - ./harbor.yaml
   - ./jetstack.yaml
+  - ./longhorn.yaml
   - ./metrics-server.yaml
   - ./prometheus-community.yaml
   - ./spegel.yaml
