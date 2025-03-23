@@ -54,6 +54,7 @@ spec:
         WOODPECKER_FORGEJO_URL: https://forgejo.milim.samoth.eu/
         WOODPECKER_OPEN: false
         WOODPECKER_ADMIN: samoth
+        WOODPECKER_HOST: https://woodpecker.milim.samoth.eu
         WOODPECKER_DISABLE_USER_AGENT_REGISTRATION: true
       extraSecretNamesForEnvFrom:
         - woodpecker-database-secret
