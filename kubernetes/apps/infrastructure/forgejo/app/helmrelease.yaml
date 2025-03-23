@@ -87,6 +87,8 @@ spec:
           ECDSA: -1
           RSA: -1
           DSA: -1
+        webhook:
+          ALLOWED_HOST_LIST: private,*.milim.samoth.eu
         cache:
           # https://forgejo.org/docs/latest/admin/recommendations/#cacheadapter
           ADAPTER: twoqueue
