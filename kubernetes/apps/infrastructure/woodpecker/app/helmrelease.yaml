@@ -36,6 +36,7 @@ spec:
         WOODPECKER_CONNECT_RETRY_COUNT: '1'
       extraSecretNamesForEnvFrom:
         - woodpecker-common-secret
+      mapAgentSecret: false
       persistence:
         enabled: true
         size: 128Mi
