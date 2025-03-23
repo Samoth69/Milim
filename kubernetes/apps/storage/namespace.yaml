@@ -5,3 +5,5 @@ metadata:
   name: storage
   labels:
     kustomize.toolkit.fluxcd.io/prune: disabled
+    # used by longhorn, see https://www.talos.dev/v1.9/kubernetes-guides/configuration/pod-security/
+    pod-security.kubernetes.io/enforce: privileged
