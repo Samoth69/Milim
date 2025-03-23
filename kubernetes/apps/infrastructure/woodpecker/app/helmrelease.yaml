@@ -18,6 +18,7 @@ spec:
   values:
     agent:
       image:
+        registry: docker.io
         repository: woodpeckerci/woodpecker-agent
         tag: v3.4.0-alpine
       env:
@@ -43,6 +44,7 @@ spec:
         enabled: true
     server:
       image:
+        registry: docker.io
         repository: woodpeckerci/woodpecker-server
         tag: v3.4.0-alpine
       env:
