@@ -1,3 +1,0 @@
----
-providerRegex: ^(milim-control-akame|milim-control-felix|milim-control-yukine|milim-worker-akame|milim-worker-yukine)$
-bypassDnsResolution: true
