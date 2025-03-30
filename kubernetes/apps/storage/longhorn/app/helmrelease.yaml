@@ -37,4 +37,3 @@ spec:
       defaultReplicaCount: 2
       autoDeletePodWhenVolumeDetachedUnexpectedly: true
       allowCollectingLonghornUsageMetrics: false
-

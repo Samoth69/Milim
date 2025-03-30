@@ -1,0 +1,31 @@
+# yaml-language-server: $schema=https://kubernetesjsonschema.dev/v1.18.1-standalone-strict/secret-v1.json
+apiVersion: v1
+kind: Secret
+metadata:
+  name: minio-truenas
+type: Opaque
+stringData:
+  AWS_ACCESS_KEY_ID: ENC[AES256_GCM,data:xm3lZUc2yYbehAuiULOa7czgaSfnKQ==,iv:yG46Z8zpj8qGLUxEqYztm/t4OIPhT9rjokkRUJ34jBo=,tag:E2Pjc6neOgdYQxFlcreNcQ==,type:str]
+  AWS_SECRET_ACCESS_KEY: ENC[AES256_GCM,data:hn5F60qlNI1y30Kf/M8X1eiknGaFKR56,iv:WeMMTYuL1zlpzCqNprYwa+aMSwTmwtEEDlgAychvLhE=,tag:QHLHv2FLDhA+ao7TX+UMbw==,type:str]
+  AWS_ENDPOINTS: ENC[AES256_GCM,data:gCeaW7QxNdyvU4BtxgqjY+5xBIsZLjYEMUjfAiYb,iv:N7Xgrz/IjI1zuSuHMfNaqE+t+QI+tDA4oIIm/KewWuw=,tag:eizEpyQOJ+Lj+XhusrEOgg==,type:str]
+sops:
+  kms: []
+  gcp_kms: []
+  azure_kv: []
+  hc_vault: []
+  age:
+    - recipient: age1du3d09j5gl5u7qcafgjk2u7nej34cvtldfvpt2s67nhvrwzezpfqxqpwju
+      enc: |
+        -----BEGIN AGE ENCRYPTED FILE-----
+        YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSB2MnpLRWR6TEFkcytuNVky
+        b3dUNmQ5OE40NVJjaVR6Z2VYNjJMSFhpQldRCmsrQWl6dTN6T3VPV1NsekRMcGU0
+        cVlsazU0NW0ybDhrYXNLZ1ZlZ004YkEKLS0tIGpJb1MzSXJTMnRGR2hOVXN5TmJC
+        VGZXeS9QNUlzTlRFdXY1OVVrRitzSjAKDdZ0UKIbet2ck0KrAaGeeLoh+WVxS8Fk
+        jseoQEWehMdG3lwXg3v8wni/0/4jjP93pBh9feZkqY0ptO8Qr7ImkA==
+        -----END AGE ENCRYPTED FILE-----
+  lastmodified: "2025-03-30T16:28:51Z"
+  mac: ENC[AES256_GCM,data:J/xb9RqnPWVlIsU9l5I1e6PZD02o6DMTmd+j/mFKuXdJSMakPtUyTvHGnsW/+0LQdNIeLYyPs+7jV0cM23BI/1id6yX5IHPscXeptXAvn2Fxt4g6tRwYvC9fRZckT/TiBlgqfyan46Z1aIKbwh8pd9d8kBDhbBCqMwWBauqlz7w=,iv:njyMMhK6hg7hOyN7z0Y27jScKTr+9wy3owG+wbw4gos=,tag:ceNepvW4q2Uc1821wztGEg==,type:str]
+  pgp: []
+  encrypted_regex: ^(data|stringData)$
+  mac_only_encrypted: true
+  version: 3.9.4

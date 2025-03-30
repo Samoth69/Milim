@@ -1,0 +1,40 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/datreeio/CRDs-catalog/refs/heads/main/cilium.io/ciliumnetworkpolicy_v2.json
+apiVersion: "cilium.io/v2"
+kind: CiliumNetworkPolicy
+metadata:
+  name: longhorn-network-policy
+spec:
+  endpointSelector:
+    matchLabels:
+      app.kubernetes.io/instance: longhorn
+  ingress:
+    # Allow himself
+    - fromEndpoints:
+        - matchLabels:
+            app.kubernetes.io/instance: longhorn
+    # Traefik ingress
+    - fromEndpoints:
+        - matchLabels:
+            app.kubernetes.io/instance: traefik-internal-traefik-ingress
+      toPorts:
+        - ports:
+            - port: "8000"
+              protocol: TCP
+  egress:
+    # Allow himself
+    - toEndpoints:
+        - matchLabels:
+            app.kubernetes.io/instance: longhorn
+    # Minio
+    - toFQDNs:
+        - matchName: "truenas.samoth.eu"
+      toPorts:
+        - ports:
+            - port: "9000"
+              protocol: TCP
+    - toCIDR:
+        - 192.168.0.22/32
+      toPorts:
+        - ports:
+            - port: "9000"
+              protocol: TCP
