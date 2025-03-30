@@ -46,6 +46,14 @@ spec:
     persistence:
       persistentVolumeClaim:
         registry:
+          existingClaim: lh-harbor-registry
           size: 20Gi
+        jobservice:
+          jobLog:
+            storageClass: longhorn
+        redis:
+          storageClass: longhorn
+        trivy:
+          storageClass: longhorn
     updateStrategy:
       type: Recreate
