@@ -92,9 +92,7 @@ spec:
         storageSpec:
           volumeClaimTemplate:
             spec:
-              selector:
-                matchLabels:
-                  app.kubernetes.io/name: lh-pv-prometheus
+              storageClassName: longhorn
               resources:
                 requests:
                   storage: 50Gi
