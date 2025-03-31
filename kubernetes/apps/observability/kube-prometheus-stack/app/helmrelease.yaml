@@ -46,7 +46,7 @@ spec:
         storage:
           volumeClaimTemplate:
             spec:
-              storageClassName: csi-rbd-sc
+              storageClassName: longhorn
               resources:
                 requests:
                   storage: 1Gi
@@ -92,12 +92,12 @@ spec:
         storageSpec:
           volumeClaimTemplate:
             spec:
-              storageClassName: csi-rbd-sc
+              selector:
+                matchLabels:
+                  longhornvolume: prometheus
               resources:
                 requests:
                   storage: 50Gi
-              finalizers:
-                - kubernetes.io/pvc-protection
     prometheus-node-exporter:
       fullnameOverride: node-exporter
       prometheus:
