@@ -25,6 +25,8 @@ spec:
     - toEndpoints:
         - matchLabels:
             app.kubernetes.io/instance: longhorn
+        - matchLabels:
+            longhorn.io/component: instance-manager
     # Minio
     - toFQDNs:
         - matchName: "truenas.samoth.eu"
