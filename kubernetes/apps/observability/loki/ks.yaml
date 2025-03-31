@@ -18,3 +18,4 @@ spec:
   wait: false
   interval: 30m
   timeout: 5m
+  suspend: true
