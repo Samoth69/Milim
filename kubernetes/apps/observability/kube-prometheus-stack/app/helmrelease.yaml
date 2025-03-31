@@ -94,7 +94,7 @@ spec:
             spec:
               selector:
                 matchLabels:
-                  longhornvolume: prometheus
+                  app.kubernetes.io/name: lh-pv-prometheus
               resources:
                 requests:
                   storage: 50Gi

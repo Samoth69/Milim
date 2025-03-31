@@ -37,7 +37,7 @@ spec:
       create: true
       name: csi-rbd-sc
       annotations:
-        storageclass.kubernetes.io/is-default-class: "true"
+        storageclass.kubernetes.io/is-default-class: "false"
       clusterID: 8452515a-f5d3-45ac-b428-cb6d56e36a03
       pool: cephpool_milim
 
