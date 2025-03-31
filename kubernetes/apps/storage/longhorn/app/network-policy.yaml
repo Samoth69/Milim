@@ -40,3 +40,32 @@ spec:
         - ports:
             - port: "9000"
               protocol: TCP
+---
+# yaml-language-server: $schema=https://raw.githubusercontent.com/datreeio/CRDs-catalog/refs/heads/main/cilium.io/ciliumnetworkpolicy_v2.json
+apiVersion: "cilium.io/v2"
+kind: CiliumNetworkPolicy
+metadata:
+  name: longhorn-intance-manager-network-policy
+spec:
+  endpointSelector:
+    matchLabels:
+      longhorn.io/component: instance-manager
+  ingress:
+    # Allow longhorn
+    - fromEndpoints:
+        - matchLabels:
+            app.kubernetes.io/instance: longhorn
+  egress:
+    # Minio
+    - toFQDNs:
+        - matchName: "truenas.samoth.eu"
+      toPorts:
+        - ports:
+            - port: "9000"
+              protocol: TCP
+    - toCIDR:
+        - 192.168.0.22/32
+      toPorts:
+        - ports:
+            - port: "9000"
+              protocol: TCP
