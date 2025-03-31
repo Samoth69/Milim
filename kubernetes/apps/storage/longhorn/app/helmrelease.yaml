@@ -23,6 +23,7 @@ spec:
       defaultClassReplicaCount: 2
       defaultDataLocality: best-effort
       migratable: true
+      backupTargetName: minio-truenas
     ingress:
       enabled: true
       ingressClassName: traefik-internal

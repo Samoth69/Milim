@@ -28,7 +28,6 @@ spec:
         cpu: 2m
         memory: 16Mi
       limits:
-        cpu: 200m
         memory: 256Mi
     networkPolicy:
       kubeAPIServerPorts:
