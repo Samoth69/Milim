@@ -5,4 +5,4 @@ kind: Kustomization
 resources:
   - ./cloudflare-api-token-secret.sops.yaml
   - ./letsencrypt-prod.yaml
-  # - ./certificate.yaml
+  - ./certificate.yaml
