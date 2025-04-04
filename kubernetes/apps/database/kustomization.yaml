@@ -6,5 +6,5 @@ resources:
   - ./namespace.yaml
   - ./crunchy-postgres-operator/ks.yaml
   - ./userinit-controller/ks.yaml
-  - ./hippo-ha/ks.yaml
+  - ./elephant/ks.yaml
   - ./eso-rb.yaml
