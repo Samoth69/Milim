@@ -43,14 +43,20 @@ spec:
         requests:
           cpu: 10m
           memory: 256Mi
+    core:
+      replicas: 2
+    registry:
+      replicas: 2
     persistence:
       persistentVolumeClaim:
         registry:
           existingClaim: lh-harbor-registry
+          accessMode: ReadWriteMany
           size: 20Gi
         jobservice:
           jobLog:
             storageClass: longhorn
+            accessMode: ReadWriteMany
         redis:
           storageClass: longhorn
         trivy:
