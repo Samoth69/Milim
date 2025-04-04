@@ -59,7 +59,7 @@ spec:
           OFFLINE_MODE: true
         database:
           DB_TYPE: postgres
-          HOST: hippo-ha-ha.database.svc
+          HOST: elephant-primary.database.svc
           NAME: forgejo
           USER: forgejo
           MAX_OPEN_CONNS: 10

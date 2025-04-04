@@ -13,7 +13,7 @@ spec:
   egress:
     - toEndpoints:
       - matchLabels:
-          postgres-operator.crunchydata.com/cluster: hippo-ha
+          postgres-operator.crunchydata.com/cluster: elephant
       toPorts:
         - ports:
           - port: "5432"

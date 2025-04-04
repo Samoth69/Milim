@@ -29,7 +29,7 @@ spec:
     database:
       type: external
       external:
-        host: hippo-ha-ha.database.svc
+        host: elephant-primary.database.svc
         username: harbor
         coreDatabase: harbor
         existingSecret: harbor-database-secret

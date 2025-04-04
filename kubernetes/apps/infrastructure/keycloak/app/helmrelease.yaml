@@ -39,7 +39,7 @@ spec:
     postgresql:
       enabled: false
     externalDatabase:
-      host: hippo-ha-ha.database.svc
+      host: elephant-primary.database.svc
       user: keycloak
       database: keycloak
       existingSecret: keycloak-database-secret
