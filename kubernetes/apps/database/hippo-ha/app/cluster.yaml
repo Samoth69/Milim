@@ -30,6 +30,7 @@ spec:
       dataVolumeClaimSpec:
         accessModes:
         - "ReadWriteOnce"
+        storageClassName: longhorn
         resources:
           requests:
             storage: 40Gi
