@@ -55,5 +55,3 @@ spec:
           storageClass: longhorn
         trivy:
           storageClass: longhorn
-    updateStrategy:
-      type: Recreate
