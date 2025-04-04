@@ -124,5 +124,5 @@ spec:
             endpoint: https://truenas.samoth.eu:9000
             region: us-east-1
           schedules:
-            full: "0 1 * * 0" # Sunday at 01:00
-            differential: "0 */3 * * *"
+            full: "0 1 * * *" # every day at 01:00
+            differential: "0 */3 * * *" # every 3 hours
