@@ -6,9 +6,22 @@ metadata:
   name: &name elephant
 spec:
   dataSource:
-    postgresCluster:
-      clusterName: hippo-ha
-      repoName: repo1
+    pgbackrest:
+      stanza: db
+      configuration:
+        - secret:
+            name: hippo-ha-secret
+      global:
+        repo1-s3-uri-style: path
+        repo1-path: /pgbackrest/postgres-operator/milim/repo1
+        repo1-retention-full: "14"
+        repo1-retention-full-type: count
+      repo:
+        name: repo1
+        s3:
+          bucket: crunchy-postgres-backups
+          endpoint: https://truenas.samoth.eu:9000
+          region: us-east-1
 
   postgresVersion: 17
 
