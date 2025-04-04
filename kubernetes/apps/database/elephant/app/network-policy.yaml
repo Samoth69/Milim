@@ -2,16 +2,16 @@
 apiVersion: "cilium.io/v2"
 kind: CiliumNetworkPolicy
 metadata:
-  name: hippo-ha-network-policy
+  name: elephant-network-policy
 spec:
   endpointSelector:
     matchLabels:
-      postgres-operator.crunchydata.com/cluster: hippo-ha
+      postgres-operator.crunchydata.com/cluster: &clusterName elephant
   ingress:
     # Allow himself
     - fromEndpoints:
         - matchLabels:
-            postgres-operator.crunchydata.com/cluster: hippo-ha
+            postgres-operator.crunchydata.com/cluster: *clusterName
     # Userinit
     - fromEndpoints:
         - matchLabels:
@@ -61,4 +61,4 @@ spec:
     # Allow himself
     - toEndpoints:
         - matchLabels:
-            postgres-operator.crunchydata.com/cluster: hippo-ha
+            postgres-operator.crunchydata.com/cluster: *clusterName
