@@ -20,6 +20,10 @@ spec:
         - ports:
             - port: "8000"
               protocol: TCP
+    # PGO
+    - fromEndpoints:
+        - matchLabels:
+            postgres-operator.crunchydata.com/control-plane: pgo
   egress:
     # Allow himself
     - toEndpoints:
