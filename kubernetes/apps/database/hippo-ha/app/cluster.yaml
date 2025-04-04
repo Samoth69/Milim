@@ -25,8 +25,8 @@ spec:
 
 
   instances:
-    - name: &instance pgha1
-      replicas: 2
+    - name: pgha1
+      replicas: 1
       dataVolumeClaimSpec:
         accessModes:
         - "ReadWriteOnce"
@@ -34,14 +34,6 @@ spec:
         resources:
           requests:
             storage: 40Gi
-      affinity:
-        podAntiAffinity:
-          requiredDuringSchedulingIgnoredDuringExecution:
-          - topologyKey: kubernetes.io/hostname
-            labelSelector:
-              matchLabels:
-                postgres-operator.crunchydata.com/cluster: *name
-                postgres-operator.crunchydata.com/instance-set: *instance
       resources:
         requests:
           cpu: 10m
