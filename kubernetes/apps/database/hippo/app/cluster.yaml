@@ -3,8 +3,13 @@
 apiVersion: postgres-operator.crunchydata.com/v1beta1
 kind: PostgresCluster
 metadata:
-  name: &name hippo-ha
+  name: &name elephant
 spec:
+  dataSource:
+    postgresCluster:
+      clusterName: hippo-ha-ha
+      repoName: repo1
+
   postgresVersion: 17
 
   metadata:
@@ -25,7 +30,7 @@ spec:
 
 
   instances:
-    - name: pgha1
+    - name: elephant
       replicas: 1
       dataVolumeClaimSpec:
         accessModes:
