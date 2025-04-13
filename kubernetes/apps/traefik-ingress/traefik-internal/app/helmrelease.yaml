@@ -35,6 +35,9 @@ spec:
       websecure:
         # make sure to update the network policy accordingly
         port: 8443
+      gittcp:
+        port: 2222
+        protocol: TCP
     service:
       annotations:
         "lbipam.cilium.io/ips": "192.168.1.30"

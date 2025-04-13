@@ -54,8 +54,8 @@ spec:
           ALLOW_DOMAIN: https://forgejo.milim.samoth.eu
         server:
           ROOT_URL: https://forgejo.milim.samoth.eu
-          SSH_DOMAIN: forgejo-ssh.milim.samoth.eu
-          SSH_PORT: 443
+          SSH_DOMAIN: forgejo.milim.samoth.eu
+          SSH_PORT: 2222
           START_SSH_SERVER: true
           DISABLE_SSH: false
           OFFLINE_MODE: true
