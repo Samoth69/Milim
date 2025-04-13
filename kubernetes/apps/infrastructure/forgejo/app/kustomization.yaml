@@ -5,4 +5,5 @@ kind: Kustomization
 resources:
   - ./externalsecrets.yaml
   - ./network-policy.yaml
+  - ./ingressroutetcp.yaml
   - ./helmrelease.yaml

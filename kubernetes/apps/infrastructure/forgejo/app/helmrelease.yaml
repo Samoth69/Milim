@@ -25,12 +25,6 @@ spec:
           paths:
             - path: /
               pathType: Prefix
-    # service:
-    #   ssh:
-    #     type: LoadBalancer
-    #     externalIps: 192.168.1.31
-    #     annotations:
-    #       lbipam.cilium.io/ips: 192.168.1.31
     resources:
       requests:
         cpu: 10m
@@ -60,6 +54,7 @@ spec:
           ALLOW_DOMAIN: https://forgejo.milim.samoth.eu
         server:
           ROOT_URL: https://forgejo.milim.samoth.eu
+          SSH_DOMAIN: forgejo-ssh.milim.samoth.eu
           START_SSH_SERVER: true
           DISABLE_SSH: false
           OFFLINE_MODE: true
