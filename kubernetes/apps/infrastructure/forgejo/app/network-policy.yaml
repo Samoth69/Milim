@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/datreeio/CRDs-catalog/refs/heads/main/cilium.io/ciliumnetworkpolicy_v2.json
+apiVersion: "cilium.io/v2"
+kind: CiliumNetworkPolicy
+metadata:
+  name: forgejo-network-policy
+spec:
+  endpointSelector:
+    matchLabels:
+      app: &appName forgejo
+  ingress:
+    # Traefik ingress
+    - fromEndpoints:
+        - matchLabels:
+            app.kubernetes.io/instance: traefik-internal-traefik-ingress
+      toPorts:
+        - ports:
+            - port: "3000"
+              protocol: TCP
+    # SSH
+    - fromCIDR:
+        - 192.168.0.0/23
+      toPorts:
+        - ports:
+            - port: "2222"
+              protocol: TCP
