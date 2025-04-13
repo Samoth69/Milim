@@ -39,8 +39,7 @@ spec:
         port: 2222
         exposedPort: 2222
         protocol: TCP
-        expose:
-          default: true
+        expose: true
     service:
       annotations:
         "lbipam.cilium.io/ips": "192.168.1.30"

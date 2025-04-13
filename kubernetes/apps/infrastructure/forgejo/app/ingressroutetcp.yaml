@@ -10,5 +10,3 @@ spec:
       services:
         - name: forgejo-ssh
           port: 22
-  tls:
-    passthrough: true
