@@ -25,6 +25,12 @@ spec:
           paths:
             - path: /
               pathType: Prefix
+    # service:
+    #   ssh:
+    #     type: LoadBalancer
+    #     externalIps: 192.168.1.31
+    #     annotations:
+    #       lbipam.cilium.io/ips: 192.168.1.31
     resources:
       requests:
         cpu: 10m
@@ -107,6 +113,8 @@ spec:
           ENABLED: true
         packages:
           ENABLED: false
+        log:
+          LEVEL: Debug
       additionalConfigFromEnvs:
         - name: FORGEJO__DATABASE__PASSWD
           valueFrom:
