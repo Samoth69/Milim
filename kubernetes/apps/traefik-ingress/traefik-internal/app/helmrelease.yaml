@@ -37,7 +37,10 @@ spec:
         port: 8443
       gittcp:
         port: 2222
+        exposedPort: 2222
         protocol: TCP
+        expose:
+          default: true
     service:
       annotations:
         "lbipam.cilium.io/ips": "192.168.1.30"
