@@ -22,7 +22,7 @@ spec:
       defaultClass: false
       defaultClassReplicaCount: 2
       defaultDataLocality: best-effort
-      migratable: true
+      migratable: false
       backupTargetName: minio-truenas
     ingress:
       enabled: true
